@@ -1,0 +1,138 @@
+{
+  "widgetName": { "type": "hidden", "value": "☠ Die Counter" },
+
+  "deathCount": {
+    "type": "number",
+    "label": "💀 Nombre de morts (régler ici manuellement)",
+    "value": 0, "min": 0, "max": 9999, "step": 1,
+    "group": "💀 Compteur"
+  },
+
+  "imgSize": {
+    "type": "slider", "label": "Taille de l'image (px)",
+    "value": 200, "min": 80, "max": 600, "step": 10,
+    "group": "🖼️ Image"
+  },
+
+  "numSize": {
+    "type": "slider", "label": "Taille du chiffre (px)",
+    "value": 72, "min": 20, "max": 220, "step": 4,
+    "group": "🔢 Chiffre"
+  },
+  "numColor": {
+    "type": "colorpicker", "label": "Couleur du chiffre",
+    "value": "#fae96e", "group": "🔢 Chiffre"
+  },
+  "strokeWidth": {
+    "type": "slider", "label": "Épaisseur du contour (px)",
+    "value": 3, "min": 0, "max": 12, "step": 1,
+    "group": "🔢 Chiffre"
+  },
+  "numFont": {
+    "type": "dropdown", "label": "Police du chiffre",
+    "value": "Brushlie Demo",
+    "options": {
+      "Brushlie Demo":           "Brushlie — Brush urban (défaut)",
+      "Impact":                  "Impact — Gras compact",
+      "Arial Black":             "Arial Black — Robuste",
+      "Cinzel":                  "Cinzel — Gothique romain",
+      "Bebas Neue":              "Bebas Neue — Sport / Affiche",
+      "Oswald":                  "Oswald — Condensé moderne",
+      "Russo One":               "Russo One — Techno solide",
+      "Permanent Marker":        "Permanent Marker — Marqueur",
+      "Creepster":               "Creepster — Horror",
+      "Nosifer":                 "Nosifer — Horreur extrême",
+      "Eater":                   "Eater — Acide / Corrosion",
+      "Pirata One":              "Pirata One — Pirate",
+      "UnifrakturMaguntia":      "UnifrakturMaguntia — Fraktur gothique",
+      "Mountains of Christmas":  "Mountains of Christmas — Fun arrondi",
+      "Press Start 2P":          "Press Start 2P — Pixel / Rétro",
+      "VT323":                   "VT323 — Terminal",
+      "Share Tech Mono":         "Share Tech Mono — Monospace tech",
+      "Chakra Petch":            "Chakra Petch — Cyber / HUD",
+      "Teko":                    "Teko — Compact militaire",
+      "Bangers":                 "Bangers — Comics",
+      "Bungee":                  "Bungee — Signalétique urbaine",
+      "Bungee Shade":            "Bungee Shade — Relief 3D",
+      "Abril Fatface":           "Abril Fatface — Sérif gras élégant",
+      "Black Ops One":           "Black Ops One — Militaire",
+      "Alfa Slab One":           "Alfa Slab One — Slab bold",
+      "Ultra":                   "Ultra — Mega gras",
+      "Righteous":               "Righteous — Rétro arrondi",
+      "Audiowide":               "Audiowide — Sci-fi",
+      "Orbitron":                "Orbitron — Futuriste géométrique",
+      "Exo 2":                   "Exo 2 — Sci-fi moderne",
+      "Rajdhani":                "Rajdhani — Techno fin",
+      "Squada One":              "Squada One — Condensé sport",
+      "Saira Condensed":         "Saira Condensed — Condensé propre",
+      "Wallpoet":                "Wallpoet — Graffiti blocs",
+      "Special Elite":           "Special Elite — Machine à écrire",
+      "Silkscreen":              "Silkscreen — Pixel fin",
+      "DotGothic16":             "DotGothic16 — Pixel japonais",
+      "Metal Mania":             "Metal Mania — Heavy metal",
+      "Rye":                     "Rye — Western",
+      "Uncial Antiqua":          "Uncial Antiqua — Manuscrit médiéval",
+      "Caesar Dressing":         "Caesar Dressing — Rome antique",
+      "Fredericka the Great":    "Fredericka the Great — Ornementé"
+    },
+    "group": "🔢 Chiffre"
+  },
+  "offsetY": {
+    "type": "slider", "label": "↕ Vertical  (négatif = monte, positif = descend)",
+    "value": -20, "min": -400, "max": 400, "step": 2,
+    "group": "🔢 Chiffre"
+  },
+  "offsetX": {
+    "type": "slider", "label": "↔ Horizontal  (négatif = gauche, positif = droite)",
+    "value": 0, "min": -400, "max": 400, "step": 2,
+    "group": "🔢 Chiffre"
+  },
+
+  "passiveAnim": {
+    "type": "dropdown", "label": "Animation passive du chiffre",
+    "value": "none",
+    "options": {
+      "none":      "Aucune (statique)",
+      "pulse":     "Pulse — glow qui respire",
+      "float":     "Float — flottaison douce",
+      "flicker":   "Flicker — scintillement",
+      "glitch":    "Glitch — instabilité numérique",
+      "heartbeat": "Heartbeat — battement de cœur",
+      "wave":      "Wave — ondulation gauche-droite",
+      "zoom":      "Zoom — respiration de taille"
+    },
+    "group": "✨ Animation passive"
+  },
+  "animSpeed": {
+    "type": "dropdown", "label": "Vitesse de l'animation passive",
+    "value": "normal",
+    "options": { "slow": "Lente", "normal": "Normale", "fast": "Rapide" },
+    "group": "✨ Animation passive"
+  },
+  "glowColor": {
+    "type": "colorpicker", "label": "Couleur du glow (pulse / flicker)",
+    "value": "#ff0000",
+    "group": "✨ Animation passive"
+  },
+
+  "ripAnim": {
+    "type": "dropdown", "label": "Animation déclenchée par !rip",
+    "value": "shake",
+    "options": {
+      "shake":     "Shake — secousse (défaut)",
+      "pulse":     "Pulse — glow rapide x3",
+      "float":     "Float — rebond",
+      "flicker":   "Flicker — scintillement",
+      "glitch":    "Glitch — instabilité",
+      "heartbeat": "Heartbeat — battement x2",
+      "wave":      "Wave — vague x3",
+      "zoom":      "Zoom — zoom x3"
+    },
+    "group": "💀 Animation !rip"
+  },
+  "ripCooldown": {
+    "type": "slider", "label": "Cooldown !rip pour les viewers (minutes)",
+    "value": 15, "min": 0, "max": 60, "step": 1,
+    "group": "💀 Animation !rip"
+  }
+}

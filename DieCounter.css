@@ -1,0 +1,139 @@
+/* ── DIE COUNTER — Full Static ── */
+@import url('https://db.onlinewebfonts.com/c/3363fa85274d33657a3e0bb3ed917f89?family=Brushlie+Demo');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Bebas+Neue&family=Oswald:wght@700&family=Russo+One&family=Permanent+Marker&family=Creepster&family=Nosifer&family=Eater&family=Pirata+One&family=UnifrakturMaguntia&family=Mountains+of+Christmas:wght@700&family=Press+Start+2P&family=VT323&family=Share+Tech+Mono&family=Chakra+Petch:wght@700&family=Teko:wght@700&family=Bangers&family=Bungee&family=Bungee+Shade&family=Abril+Fatface&family=Black+Ops+One&family=Alfa+Slab+One&family=Ultra&family=Righteous&family=Audiowide&family=Orbitron:wght@700&family=Exo+2:wght@700&family=Rajdhani:wght@700&family=Squada+One&family=Saira+Condensed:wght@700&family=Wallpoet&family=Special+Elite&family=Silkscreen:wght@700&family=DotGothic16&family=Metal+Mania&family=Rye&family=Uncial+Antiqua&family=Caesar+Dressing&family=Fredericka+the+Great&display=swap');
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: transparent !important; overflow: hidden; }
+
+#dc {
+  display: inline-block;
+  position: relative;
+  background: transparent;
+}
+
+#dc-img {
+  width: 200px;
+  height: auto;
+  display: block;
+  image-rendering: auto;
+}
+
+#dc-num {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: 'Brushlie Demo', Impact, Arial Black, sans-serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: #fae96e;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+
+  -webkit-text-stroke: var(--stroke, 3px) #000000;
+  paint-order: stroke fill;
+
+  text-shadow:
+    0  4px 8px  rgba(0,0,0,.99),
+    4px 4px 8px rgba(0,0,0,.95),
+   -4px 4px 8px rgba(0,0,0,.95),
+    0  2px 4px  rgba(0,0,0,.99);
+}
+
+/* ── Animation !rip ── */
+@keyframes ripShake {
+  0%,100%{ transform: translateX(0) rotate(0); }
+  15%    { transform: translateX(-8px) rotate(-2deg); }
+  30%    { transform: translateX(8px)  rotate(2deg); }
+  45%    { transform: translateX(-6px) rotate(-1.5deg); }
+  60%    { transform: translateX(6px)  rotate(1.5deg); }
+  75%    { transform: translateX(-3px); }
+  90%    { transform: translateX(3px); }
+}
+/* Shake sur le WRAPPER entier (image + chiffre bougent ensemble) */
+#dc.rip { animation: ripShake 0.6s ease; }
+
+/* ══════════════════════════════════════
+   ANIMATIONS PASSIVES (chiffre uniquement)
+   Image toujours fixe
+══════════════════════════════════════ */
+
+/* Pulse — glow qui respire */
+@keyframes animPulse {
+  0%,100%{ text-shadow: 0 4px 8px rgba(0,0,0,.99), 4px 4px 8px rgba(0,0,0,.95), -4px 4px 8px rgba(0,0,0,.95), 0 0 0px var(--gc,#ff0000); }
+  50%    { text-shadow: 0 4px 8px rgba(0,0,0,.99), 4px 4px 8px rgba(0,0,0,.95), -4px 4px 8px rgba(0,0,0,.95), 0 0 28px var(--gc,#ff0000), 0 0 55px var(--gc,#ff0000); }
+}
+
+/* Float — flottaison douce */
+@keyframes animFloat {
+  0%,100%{ transform: translateX(-50%) translateY(0); }
+  50%    { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* Flicker — scintillement */
+@keyframes animFlicker {
+  0%,100%{ opacity:1; text-shadow: 0 4px 8px rgba(0,0,0,.99), 4px 4px 8px rgba(0,0,0,.95), -4px 4px 8px rgba(0,0,0,.95); }
+  4%     { opacity:.85; }
+  8%     { opacity:1;   text-shadow: 0 4px 8px rgba(0,0,0,.99), 0 0 18px var(--gc,#ff0000); }
+  28%    { opacity:1; }
+  30%    { opacity:.7; }
+  33%    { opacity:1; }
+  62%    { opacity:1; }
+  64%    { opacity:.5; text-shadow: 0 4px 8px rgba(0,0,0,.99), 0 0 30px var(--gc,#ff0000); }
+  66%    { opacity:1; }
+  80%    { opacity:1; }
+  82%    { opacity:.8; }
+  84%    { opacity:1; }
+}
+
+/* Glitch — instabilité numérique */
+@keyframes animGlitch {
+  0%,90%,100%{ transform:translateX(-50%) skewX(0); filter:none; }
+  91%{ transform:translateX(calc(-50% - 4px)) skewX(-4deg); filter:hue-rotate(90deg) brightness(1.5); }
+  93%{ transform:translateX(calc(-50% + 5px)) skewX(3deg);  filter:hue-rotate(-90deg); }
+  95%{ transform:translateX(calc(-50% - 2px)) skewX(-1deg); filter:none; }
+  97%{ transform:translateX(calc(-50% + 3px)); }
+}
+
+/* Heartbeat — battement */
+@keyframes animHeartbeat {
+  0%,100%{ transform:translateX(-50%) scale(1); }
+  14%    { transform:translateX(-50%) scale(1.12); }
+  28%    { transform:translateX(-50%) scale(1); }
+  42%    { transform:translateX(-50%) scale(1.07); }
+  56%    { transform:translateX(-50%) scale(1); }
+}
+
+/* Wave — ondulation gauche-droite */
+@keyframes animWave {
+  0%,100%{ transform:translateX(-50%) rotate(0deg); }
+  25%    { transform:translateX(calc(-50% - 6px)) rotate(-3deg); }
+  75%    { transform:translateX(calc(-50% + 6px)) rotate(3deg); }
+}
+
+/* Zoom — respiration de taille */
+@keyframes animZoom {
+  0%,100%{ transform:translateX(-50%) scale(1); }
+  50%    { transform:translateX(-50%) scale(1.15); }
+}
+
+/* Classes appliquées par JS */
+#dc-num.anim-pulse     { animation: animPulse     var(--asp,2.5s) ease-in-out infinite; }
+#dc-num.anim-float     { animation: animFloat     var(--asp,3s)   ease-in-out infinite; }
+#dc-num.anim-flicker   { animation: animFlicker   var(--asp,4s)   linear     infinite; }
+#dc-num.anim-glitch    { animation: animGlitch    var(--asp,5s)   linear     infinite; }
+#dc-num.anim-heartbeat { animation: animHeartbeat var(--asp,1.5s) ease-in-out infinite; }
+#dc-num.anim-wave      { animation: animWave      var(--asp,2s)   ease-in-out infinite; }
+#dc-num.anim-zoom      { animation: animZoom      var(--asp,2.5s) ease-in-out infinite; }
+
+
+/* ── Animations déclenchées par !rip (1 seul cycle) ── */
+#dc-num.rip-pulse     { animation: animPulse     0.8s ease-in-out 3 !important; }
+#dc-num.rip-float     { animation: animFloat     1.2s ease-in-out 1 !important; }
+#dc-num.rip-flicker   { animation: animFlicker   1.5s linear     1 !important; }
+#dc-num.rip-glitch    { animation: animGlitch    1.0s linear     1 !important; }
+#dc-num.rip-heartbeat { animation: animHeartbeat 0.8s ease-in-out 2 !important; }
+#dc-num.rip-wave      { animation: animWave      0.8s ease-in-out 3 !important; }
+#dc-num.rip-zoom      { animation: animZoom      0.8s ease-in-out 3 !important; }
