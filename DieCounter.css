@@ -137,3 +137,50 @@ body { background: transparent !important; overflow: hidden; }
 #dc-num.rip-heartbeat { animation: animHeartbeat 0.8s ease-in-out 2 !important; }
 #dc-num.rip-wave      { animation: animWave      0.8s ease-in-out 3 !important; }
 #dc-num.rip-zoom      { animation: animZoom      0.8s ease-in-out 3 !important; }
+
+/* ══════════════════════════════════════
+   ANIMATIONS PASSIVES — IMAGE
+══════════════════════════════════════ */
+
+@keyframes imgFloat {
+  0%,100%{ transform: translateY(0) rotate(0deg); }
+  30%    { transform: translateY(-10px) rotate(-1deg); }
+  70%    { transform: translateY(-5px)  rotate(1deg); }
+}
+@keyframes imgPulse {
+  0%,100%{ filter: drop-shadow(0 0 0px var(--gc,#ff0000)); }
+  50%    { filter: drop-shadow(0 0 20px var(--gc,#ff0000)) drop-shadow(0 0 40px var(--gc,#ff0000)); }
+}
+@keyframes imgBreath {
+  0%,100%{ transform: scale(1); }
+  50%    { transform: scale(1.06); }
+}
+@keyframes imgWobble {
+  0%,100%{ transform: rotate(0deg); }
+  20%    { transform: rotate(-3deg); }
+  40%    { transform: rotate(3deg); }
+  60%    { transform: rotate(-2deg); }
+  80%    { transform: rotate(2deg); }
+}
+@keyframes imgFlicker {
+  0%,100%{ opacity:1; }
+  4%     { opacity:.85; }
+  8%     { opacity:1; }
+  30%    { opacity:1; }
+  32%    { opacity:.6; }
+  34%    { opacity:1; }
+  64%    { opacity:1; }
+  66%    { opacity:.7; }
+  68%    { opacity:1; }
+}
+@keyframes imgGlow {
+  0%,100%{ filter: drop-shadow(0 0 6px var(--gc,#ff0000)) drop-shadow(0 8px 16px rgba(0,0,0,.95)); }
+  50%    { filter: drop-shadow(0 0 30px var(--gc,#ff0000)) drop-shadow(0 0 60px var(--gc,#ff0000)) drop-shadow(0 8px 16px rgba(0,0,0,.95)); }
+}
+
+#dc-img.img-float   { animation: imgFloat   var(--img-asp,4s)   ease-in-out infinite; }
+#dc-img.img-pulse   { animation: imgPulse   var(--img-asp,2.5s) ease-in-out infinite; }
+#dc-img.img-breath  { animation: imgBreath  var(--img-asp,3s)   ease-in-out infinite; }
+#dc-img.img-wobble  { animation: imgWobble  var(--img-asp,3s)   ease-in-out infinite; }
+#dc-img.img-flicker { animation: imgFlicker var(--img-asp,4s)   linear     infinite; }
+#dc-img.img-glow    { animation: imgGlow    var(--img-asp,2s)   ease-in-out infinite; }

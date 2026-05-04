@@ -81,6 +81,21 @@ function doRip() {
   }
 }
 
+/* ── Image passive anim ── */
+function applyImgAnim() {
+  const img   = $('dc-img'); if (!img) return;
+  const anim  = fd('imgAnim')      || 'none';
+  const speed = fd('imgAnimSpeed') || 'normal';
+  const speedMap = { slow:1.6, normal:1, fast:0.5 };
+  const durMap   = { float:4, pulse:2.5, breath:3, wobble:3, flicker:4, glow:2 };
+  const mult     = speedMap[speed] || 1;
+  const baseDur  = durMap[anim] || 3;
+  document.documentElement.style.setProperty('--img-asp', (baseDur * mult).toFixed(2) + 's');
+  ['float','pulse','breath','wobble','flicker','glow']
+    .forEach(a => img.classList.remove('img-' + a));
+  if (anim !== 'none') img.classList.add('img-' + anim);
+}
+
 /* ── Apply settings ── */
 function applySettings() {
   const imgW  = num(fd('imgSize'),  200);
@@ -106,6 +121,7 @@ function applySettings() {
   const strokeW = parseInt(fd('strokeWidth')) || 3;
   document.documentElement.style.setProperty('--stroke', strokeW + 'px');
   applyPassiveAnim();
+  applyImgAnim();
 
   // Réglage manuel
   const manual = num(fd('deathCount'), -1);

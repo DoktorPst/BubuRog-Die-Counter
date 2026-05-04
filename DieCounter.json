@@ -14,6 +14,26 @@
     "group": "🖼️ Image"
   },
 
+  "imgAnim": {
+    "type": "dropdown", "label": "Animation passive de l'image",
+    "value": "none",
+    "options": {
+      "none":    "Aucune (fixe)",
+      "float":   "Float — flottaison douce",
+      "breath":  "Breath — respiration de taille",
+      "pulse":   "Pulse — glow coloré",
+      "glow":    "Glow — lueur pulsante",
+      "wobble":  "Wobble — oscillation",
+      "flicker": "Flicker — scintillement"
+    },
+    "group": "🖼️ Image"
+  },
+  "imgAnimSpeed": {
+    "type": "dropdown", "label": "Vitesse animation image",
+    "value": "normal",
+    "options": { "slow": "Lente", "normal": "Normale", "fast": "Rapide" },
+    "group": "🖼️ Image"
+  },
   "numSize": {
     "type": "slider", "label": "Taille du chiffre (px)",
     "value": 72, "min": 20, "max": 220, "step": 4,
