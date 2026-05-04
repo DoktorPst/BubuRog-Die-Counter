@@ -1,13 +1,17 @@
+<p align="center">
+  <img src="https://i.ibb.co/d4wKphqF/48fa50d5-3f8e-4075-8e83-c1493a33c0ba.png" width="120"/>
+</p>
+
 # ☠ Die Counter — Twitch Overlay (StreamElements)
 
-Overlay compteur avancé pour **StreamElements**, contrôlé via commandes Twitch (`!die`, `!rip`), avec animations dynamiques, personnalisation complète et sauvegarde automatique.
+Overlay compteur avancé pour **StreamElements**, piloté via commandes Twitch (`!die`, `!rip`), avec animations dynamiques, personnalisation complète et sauvegarde automatique.
 
 ---
 
-## 🖼️ Illustration du projet
+## 🖼️ Rendu de l’overlay
 
 <p align="center">
-  <img src="https://i.imgur.com/Qvq7jSU.png" alt="Preview Overlay" width="500"/>
+  <img src="https://i.imgur.com/nna0ZDt.png" alt="Overlay Preview" width="500"/>
 </p>
 
 ---
@@ -19,53 +23,55 @@ Overlay compteur avancé pour **StreamElements**, contrôlé via commandes Twitc
 3. Ajouter un widget **Custom Widget**
 4. Copier/coller les fichiers :
 
-- HTML → contenu de `DieCounter.html`
-- CSS → contenu de `DieCounter.css`
-- JS → contenu de `DieCounter.js`
-- Fields → contenu de `DieCounter.json`
+- HTML → `DieCounter.html`
+- CSS → `DieCounter.css`
+- JS → `DieCounter.js`
+- Fields → `DieCounter.json`
 
 ---
 
-## 🧠 Fonctionnement réel du système
+## 🧠 Fonctionnement réel
 
 ### 🎮 Commandes Twitch
 
 | Commande | Effet |
 |----------|------|
 | `!die5` | Définit le compteur |
-| `!die+1` | Incrémente |
-| `!die-1` | Décrémente |
+| `!die+1` | Ajoute |
+| `!die-1` | Retire |
 | `!diereset` | Reset |
-| `!rip` | Déclenche animation |
+| `!rip` | Animation |
+
+---
 
 ### 🔐 Permissions
 
 - `!die*` → Mods / Broadcaster uniquement  
-- `!rip` → Tout le monde (cooldown configurable)
+- `!rip` → Tous (cooldown automatique)
 
 ---
 
-## ⚡ Ce que fait réellement ton code
+## ⚡ Features techniques
 
 ### 📊 Compteur persistant
-- Sauvegarde automatique via `SE_API.store`
-- Recharge à l’ouverture de l’overlay
-- Priorité au réglage manuel dans les Fields
+- Sauvegarde via `SE_API.store`
+- Recharge automatique
+- Override possible via Fields (`deathCount`)
 
 ---
 
-### 🎞️ Animations avancées
+### 🎞️ Animations séparées (architecture clé)
 
-#### Sur le chiffre :
+#### 🔢 Chiffre (`#dc-num`)
 - Pulse (glow dynamique)
-- Float (flottaison)
-- Flicker (scintillement)
-- Glitch (instabilité visuelle)
-- Heartbeat (battement)
-- Wave (oscillation)
+- Float
+- Flicker
+- Glitch
+- Heartbeat
+- Wave
 - Zoom
 
-#### Sur l’image :
+#### 🖼️ Image (`#dc-img`)
 - Float
 - Breath
 - Pulse
@@ -73,26 +79,33 @@ Overlay compteur avancé pour **StreamElements**, contrôlé via commandes Twitc
 - Wobble
 - Flicker
 
-➡️ Toutes contrôlables via les Fields (sans modifier le code)
+➡️ Totalement indépendantes → gros point fort du système
 
 ---
 
 ### 💀 Animation `!rip`
-- Animation globale (shake du container) OU
-- Animation spécifique du chiffre
-- Cooldown individuel par viewer
+
+Deux modes :
+
+- **Shake global** → tout le container bouge
+- **Animation ciblée** → uniquement le chiffre
+
++ cooldown par utilisateur
 
 ---
 
-### 🎯 Système de permissions intelligent
-- Détection mods / broadcaster via tags Twitch
-- Cooldown uniquement appliqué aux viewers
+### 🧠 Gestion avancée
+
+- Détection automatique des mods (tags Twitch)
+- Cooldown intelligent par user
+- Clamp du compteur (0 → 9999)
+- Animation reset propre (reflow CSS maîtrisé)
 
 ---
 
 ## 🎨 Personnalisation
 
-### 🔁 Changer l’image (IMPORTANT)
+### 🔁 Changer l’image
 
 Dans le HTML :
 
