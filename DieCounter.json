@@ -10,7 +10,7 @@
 
   "imgSize": {
     "type": "slider", "label": "Taille de l'image (px)",
-    "value": 200, "min": 80, "max": 600, "step": 10,
+    "value": 150, "min": 80, "max": 600, "step": 10,
     "group": "🖼️ Image"
   },
 
@@ -99,7 +99,7 @@
   },
   "offsetY": {
     "type": "slider", "label": "↕ Vertical  (négatif = monte, positif = descend)",
-    "value": -20, "min": -400, "max": 400, "step": 2,
+    "value": 0, "min": -400, "max": 400, "step": 2,
     "group": "🔢 Chiffre"
   },
   "offsetX": {

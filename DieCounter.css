@@ -2,26 +2,32 @@
 @import url('https://db.onlinewebfonts.com/c/3363fa85274d33657a3e0bb3ed917f89?family=Brushlie+Demo');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Bebas+Neue&family=Oswald:wght@700&family=Russo+One&family=Permanent+Marker&family=Creepster&family=Nosifer&family=Eater&family=Pirata+One&family=UnifrakturMaguntia&family=Mountains+of+Christmas:wght@700&family=Press+Start+2P&family=VT323&family=Share+Tech+Mono&family=Chakra+Petch:wght@700&family=Teko:wght@700&family=Bangers&family=Bungee&family=Bungee+Shade&family=Abril+Fatface&family=Black+Ops+One&family=Alfa+Slab+One&family=Ultra&family=Righteous&family=Audiowide&family=Orbitron:wght@700&family=Exo+2:wght@700&family=Rajdhani:wght@700&family=Squada+One&family=Saira+Condensed:wght@700&family=Wallpoet&family=Special+Elite&family=Silkscreen:wght@700&family=DotGothic16&family=Metal+Mania&family=Rye&family=Uncial+Antiqua&family=Caesar+Dressing&family=Fredericka+the+Great&display=swap');
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: transparent !important; overflow: hidden; }
+body { background: transparent !important; overflow: visible; }
 
+/* Canvas : padding autour de l'image pour que les effets respirent */
 #dc {
   display: inline-block;
   position: relative;
   background: transparent;
+  /* 60px haut/côtés pour float/glow, 15px bas (le chiffre sort par là) */
+  padding: 60px 60px 15px 60px;
+  overflow: visible;
 }
 
 #dc-img {
-  width: 200px;
+  width: 150px;  /* taille de base — redimensionner dans OBS */
   height: auto;
   display: block;
   image-rendering: auto;
+  /* Ombre noire pour lisibilité sur tout fond */
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.85));
 }
 
 #dc-num {
   position: absolute;
-  top: auto;
-  bottom: 0;
-  left: 50%;
+  /* bottom:15px = collé au bas du padding, soit juste sous l'image */
+  bottom: var(--num-bottom, 15px);
+  left: var(--num-left, 50%);
   transform: translateX(-50%);
 
   font-family: 'Brushlie Demo', Impact, Arial Black, sans-serif;

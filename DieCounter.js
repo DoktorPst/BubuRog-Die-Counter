@@ -106,15 +106,15 @@ function applySettings() {
   const offY  = num(fd('offsetY'), -20);
 
   const img = $('dc-img'), n = $('dc-num');
+  const sv = (k,v) => document.documentElement.style.setProperty(k,v);
   if (img) img.style.width = imgW + 'px';
   if (n) {
     n.style.fontSize   = numSz + 'px';
     n.style.color      = col;
     n.style.fontFamily = `'${font}', Impact, Arial Black, sans-serif`;
-    n.style.left       = 'calc(50% + ' + offX + 'px)';
-    n.style.transform  = 'translateX(-50%)';
-    n.style.top        = 'auto';
-    n.style.bottom     = (-offY) + 'px';
+    // Position via CSS vars : offsetY négatif = monte au-dessus du bas du padding (15px)
+    sv('--num-bottom', (15 + (-offY)) + 'px');
+    sv('--num-left',   'calc(50% + ' + offX + 'px)');
   }
 
   document.documentElement.style.setProperty('--gc', fd('glowColor') || '#ff0000');
