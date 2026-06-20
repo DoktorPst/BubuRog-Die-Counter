@@ -111,3 +111,10 @@ Dans le HTML :
 
 ```html
 <img id="dc-img" src="https://i.imgur.com/ap8emez.png" />
+```
+
+---
+
+## 🔗 Liens
+
+- 🎮 Twitch : [twitch.tv/Pestovich](https://twitch.tv/Pestovich)
